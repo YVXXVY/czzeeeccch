@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RBXL.dev</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #000000;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      position: relative;
+    }
+
+    h1 { font-size: 2.2rem; font-weight: 700; transform: translateY(-50px); }
+    .purple { color: #9198f5; }
+    .white { color: #ffffff; }
+
+    p {
+      margin-top: 0;
+      transform: translateY(-28px);
+      color: #909999;
+      font-size: 1rem;
+      font-weight: 400 !important; 
+      max-width: 500px;
+    }
+
+    .input-container { margin-top: 20px; display: flex; gap: 10px; }
+
+    input[type="text"] {
+      padding: 12px 20px;
+      width: 400px;
+      border: 1px solid #888888;
+      border-radius: 10px;
+      background-color: #1f2937;
+      color: #ffffff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      outline: none;
+    }
+    input[type="text"]::placeholder { color: #888888; }
+    input[type="text"]:focus { border-color: #9198f5; }
+
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .check-profile {
+      background-color: #4f46e5;
+      color: #ffffff;
+    }
+    .check-profile:hover { background-color: #6366f1; }
+
+    .donate-btn {
+      background-color: #eab308;
+      color: #000000;
+      margin-bottom: 10px; /* space above footer */
+      position: relative;
+      left: -20px; /* slightly left */
+      top: 20px;   /* moved down 2x from previous 10px */
+    }
+    .donate-btn:hover { background-color: #facc15; }
+
+    .bottom-description {
+      position: absolute;
+      bottom: 20px;
+      left: 10px; /* slightly left */
+      color: #909999;
+      font-size: 1rem;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>
+    <span class="purple">Welcome To</span> 
+    <span class="white">RBXL.dev</span>
+  </h1>
+  <p>A modern Roblox profile viewer for curious people. More things to come later on.</p>
+
+  <div class="input-container">
+    <input id="username" type="text" placeholder="Enter username (2-50 characters)">
+    <button class="check-profile" onclick="checkProfile()">Check Profile</button>
+  </div>
+
+  <!-- Donate button above footer -->
+  <button class="donate-btn" onclick="window.open('https://www.roblox.com/game-pass/1283485187/Donation', '_blank')">Donate Us!</button>
+
+  <p class="bottom-description">Original Website: https://rbxl.dev/ -- All Credits Go To Bitsproxy. I Made This Using AI 😂</p>
+
+  <script>
+    function checkProfile() {
+      const username = document.getElementById('username').value.trim();
+
+      if (username.length < 2 || username.length > 50) {
+        alert("Username must be between 2 and 50 characters.");
+        return;
+      }
+
+      // Redirect to Roblox search page in a new tab
+      const searchUrl = `https://www.roblox.com/users/search?keyword=${encodeURIComponent(username)}`;
+      window.open(searchUrl, '_blank');
+    }
+  </script>
+</body>
+</html>
